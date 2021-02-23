@@ -1,2 +1,2 @@
 # audio_player
-Python aupio player
+Python audio player
