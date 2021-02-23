@@ -25,6 +25,10 @@ class Player:
 
         # play stream (looping from beginning of file to the end)
         while len(data) > 0:
+            i, o, e = select.select([sys.stdin], [], [], 0)
+            if i:
+                if sys.stdin.readline().strip() == "stop":
+                    break
             # writing to the stream is what *actually* plays the sound.
             self.stream.write(data)
             data = wf.readframes(chunk)
