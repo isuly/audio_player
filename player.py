@@ -1,7 +1,7 @@
 import pyaudio
+import select
+import sys
 import wave
-
-import sys, select
 
 
 class Player:
@@ -17,11 +17,9 @@ class Player:
                              channels=wf.getnchannels(),
                              rate=wf.getframerate(),
                              output=True)
-
         data = wf.readframes(chunk)
 
         run = True
-
         while True:
             i, o, e = select.select([sys.stdin], [], [], 0)
             if i:
