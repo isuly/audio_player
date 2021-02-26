@@ -40,8 +40,8 @@ class Player:
 
 player = Player()
 while True:
-    print("Enter file:")
+    print("Enter file path:")
     file = input()
     if file == "finish":
         break
-    player.play_file(file)  # '/home/isuly/Рабочий стол/birds.wav'
+    player.play_file(file)  # example '/home/isuly/Рабочий стол/birds.wav'
