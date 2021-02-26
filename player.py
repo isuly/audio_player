@@ -12,11 +12,11 @@ class Player:
         wf = wave.open(fname, 'rb')
         p = pyaudio.PyAudio()
         chunk = 1024
-
         self.stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
                              channels=wf.getnchannels(),
                              rate=wf.getframerate(),
                              output=True)
+
         data = wf.readframes(chunk)
 
         run = True
@@ -39,4 +39,9 @@ class Player:
 
 
 player = Player()
-player.play_file('/home/isuly/Рабочий стол/aa.wav')
+while True:
+    print("Enter file:")
+    file = input()
+    if file == "finish":
+        break
+    player.play_file(file)  # '/home/isuly/Рабочий стол/birds.wav'
